@@ -68,3 +68,14 @@ return authors.find((author) => author.id === book.authorId); ### you get book.a
 },
 }),
 });
+
+## Taking Arguments
+
+book: {
+type: BookType,
+description: "one Book",
+args: {
+id: { type: GraphQLInt },
+}, ### Here the args has the parameter that will be taken ###
+resolve: (parent, args) => books.find((book) => book.id === args.id),
+},
